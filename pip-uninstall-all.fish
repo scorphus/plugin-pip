@@ -1,9 +1,9 @@
 function pip-uninstall-all -d "Uninstall all pip packages"
     set -l read_prompt ""
     if test "$VIRTUAL_ENV" = ""
-        set read_prompt "We are NOT in a virtualenv, proceed (y/N)? "
+        set read_prompt (omf::err)"We are NOT in a virtualenv, proceed (y/N)? "(omf::off)
     else
-        set read_prompt "We are in "(basename $VIRTUAL_ENV)", proceed (y/N)? "
+        set read_prompt (omf::em)"We are in "(basename $VIRTUAL_ENV)", proceed (y/N)? "(omf::off)
     end
     read -l -p "echo '$read_prompt'" doit
     if test "$doit" = "y"
