@@ -18,6 +18,8 @@ Oh-My-Fish pip plugin – a collection of Fish functions to aid interacting with
 - `pipfg`: Alias to `pip freeze | grep -i foo`
 - `piplg`: Alias to `pip list | grep -i foo`
 
+Also, this plug-in brings a completion for pip.
+
 
 ### Install
 
