@@ -1,4 +1,13 @@
 function pip-uninstall-all -d "Uninstall all pip packages"
+    if [ (count $argv) -gt 0 ]
+        switch $argv[1]
+        case "-h*" "--h*" "help"
+            echo "Usage: pip-uninstall-all [-i|--interactive]"
+            return 0
+        case "-i*" "--interactive*" "interactive"
+            set interactive 1
+        end
+    end
     set -l read_prompt ""
     if test "$VIRTUAL_ENV" = ""
         set read_prompt (omf::err)"We are NOT in a virtualenv, proceed (y/N)? "(omf::off)
@@ -8,9 +17,13 @@ function pip-uninstall-all -d "Uninstall all pip packages"
     read -l -p "echo '$read_prompt'" doit
     if test "$doit" = "y"
         for package in (pip list | egrep -iv "pip" | awk '{print $1}')
-            echo -n "uninstalling $package... "
-            pip uninstall -q $package -y
-            echo " ...done!"
+            echo -n "Uninstalling $package... "
+            if set -q interactive
+                pip uninstall -q $package
+            else
+                pip uninstall -q $package -y
+                echo " ...done!"
+            end
         end
         pip install -U pip
         pip install -U setuptools
