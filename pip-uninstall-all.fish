@@ -25,7 +25,6 @@ function pip-uninstall-all -d "Uninstall all pip packages"
                 echo " ...done!"
             end
         end
-        pip install -U pip
-        pip install -U setuptools
+        pip install -U pip setuptools
     end
 end
