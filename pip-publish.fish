@@ -8,7 +8,7 @@ function pip-publish -a repo_flag repo_url -d "Show working dir status and publi
         return 1
     end
 
-    switch $repo_flag
+    switch "$repo_flag"
     case "--repository"
         ;
     case "-r"
