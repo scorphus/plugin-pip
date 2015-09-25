@@ -49,9 +49,6 @@ complete --no-files  -c pip -n "__fish_pip_needs_command" -a list      -d "List 
 complete --no-files  -c pip -n "__fish_pip_needs_command" -a show      -d "Show information about installed packages."
 complete --no-files  -c pip -n "__fish_pip_needs_command" -a search    -d "Search PyPI for packages."
 complete --no-files  -c pip -n "__fish_pip_needs_command" -a wheel     -d "Build wheels from your requirements."
-#complete --no-files -c pip -n "__fish_pip_needs_command" -a zip       -d "DEPRECATED. Zip individual packages."
-#complete --no-files -c pip -n "__fish_pip_needs_command" -a unzip     -d "DEPRECATED. Unzip individual packages."
-#complete --no-files -c pip -n "__fish_pip_needs_command" -a bundle    -d "DEPRECATED. Create pybundles."
 complete --no-files  -c pip -n "__fish_pip_needs_command" -a help      -d "Show help for commands."
 
 
@@ -80,8 +77,6 @@ complete --no-files  -c pip -n "__fish_pip_using_command install" -l upgrade    
 complete --no-files  -c pip -n "__fish_pip_using_command install" -l force-reinstall       -d   "When upgrading, reinstall all packages even if they are already up-to-date."
 complete --no-files  -c pip -n "__fish_pip_using_command install" -l ignore-installed      -d   "Ignore the installed packages (reinstalling instead)."
 complete --no-files  -c pip -n "__fish_pip_using_command install" -l no-deps               -d   "Don't install package dependencies."
-#complete --no-files -c pip -n "__fish_pip_using_command install" -l no-install            -d    DEPRECATED. Download and unpack all packages, but don't actually install them."
-#complete --no-files -c pip -n "__fish_pip_using_command install" -l no-download           -d    DEPRECATED. Don"t download any packages, just install the ones already downloaded (completes an install run with --no-install)."
 complete --no-files  -c pip -n "__fish_pip_using_command install" -l install-option        -d   "Extra arguments to be supplied to the setup.py install command (use like --install-option=\"--install-scripts=/usr/local/bin\"). Use multiple --install-option options to pass multiple options to setup.py install. If you are using an option with a directory path, be sure to use absolute path."
 complete --no-files  -c pip -n "__fish_pip_using_command install" -l global-option         -d   "Extra global options to be supplied to the setup.py call before the install command."
 complete --no-files  -c pip -n "__fish_pip_using_command install" -l user                  -d   "Install using the user scheme."
