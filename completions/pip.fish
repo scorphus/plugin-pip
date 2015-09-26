@@ -1,3 +1,4 @@
+# Based on the original by rurkowce:
 # https://github.com/rurkowce/fish-pip-completion/blob/master/pip.fish
 
 function __fish_pip_needs_command
