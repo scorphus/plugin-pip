@@ -31,7 +31,7 @@ function __fish_pip_search_packages
 end
 
 
-#keyword
+# keyword
 complete --no-files -c pip -n "__fish_pip_needs_command" -a install   -d "Install packages."
 complete --no-files -c pip -n "__fish_pip_needs_command" -a uninstall -d "Uninstall packages."
 complete --no-files -c pip -n "__fish_pip_needs_command" -a freeze    -d "Output installed packages in requirements format."
@@ -42,7 +42,7 @@ complete --no-files -c pip -n "__fish_pip_needs_command" -a wheel     -d "Build 
 complete --no-files -c pip -n "__fish_pip_needs_command" -a help      -d "Show help for commands."
 
 
-#general
+# general
 complete --no-files -c pip -s h, -l help             -d "Show help."
 complete --no-files -c pip -s v, -l verbose          -d "Give more output. Option is additive, and can be used up to 3 times."
 complete --no-files -c pip -s V, -l version          -d "Show version and exit."
@@ -55,11 +55,11 @@ complete --no-files -c pip       -l exists-action -r -d "Default action when a p
 complete --no-files -c pip       -l cert          -r -d "Path to alternate CA bundle."
 
 
-#install packages
+# install packages
 complete --no-files -c pip -n "__fish_pip_using_command install" -a "(__fish_pip_search_packages)" -d "Package"
 
 
-#install
+# install
 complete --no-files -c pip -n "__fish_pip_using_command install" -s e -l editable         -d "Install a project in editable mode (i.e. setuptools \"develop mode\") from a local project path or a VCS url."
 complete --no-files -c pip -n "__fish_pip_using_command install" -s r -l requirement      -d "Install from the given requirements file. This option can be used multiple times."
 complete --no-files -c pip -n "__fish_pip_using_command install" -s b -l build            -d "Directory to unpack packages into and build in. The default in a virtualenv is \"<venv path>/build\". The default for global installs is \"<OS tempdir>/pip_build_<username>\"."
@@ -83,7 +83,7 @@ complete --no-files -c pip -n "__fish_pip_using_command install"      -l pre    
 complete --no-files -c pip -n "__fish_pip_using_command install"      -l no-clean         -d "Don't clean up build directories."
 
 
-#list
+# list
 complete --no-files -c pip -n "__fish_pip_using_command list" -s o -l  outdated -d "List outdated packages (excluding editables)"
 complete --no-files -c pip -n "__fish_pip_using_command list" -s u -l  uptodate -d "List uptodate packages (excluding editables)"
 complete --no-files -c pip -n "__fish_pip_using_command list" -s e -l  editable -d "List editable projects."
