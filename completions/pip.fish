@@ -24,6 +24,12 @@ function __fish_pip_using_command
   return 1
 end
 
+function __fish_pip_search_packages
+  set cmd (commandline -op)
+  set q $cmd[3]
+  pip search $q | grep -ie "^$q" | awk -F' - ' '{print $1}' | sed 's/ //g'
+end
+
 
 #keyword
 complete --no-files -c pip -n "__fish_pip_needs_command" -a install   -d "Install packages."
@@ -47,6 +53,10 @@ complete --no-files -c pip       -l proxy         -r -d "Specify a proxy in the 
 complete --no-files -c pip       -l timeout       -r -d "Set the socket timeout (default 15 seconds)."
 complete --no-files -c pip       -l exists-action -r -d "Default action when a path already exists                                                                              : (s)witch, (i)gnore, (w)ipe, (b)ackup."
 complete --no-files -c pip       -l cert          -r -d "Path to alternate CA bundle."
+
+
+#install packages
+complete --no-files -c pip -n "__fish_pip_using_command install" -a "(__fish_pip_search_packages)" -d "Package"
 
 
 #install
