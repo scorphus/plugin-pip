@@ -95,14 +95,50 @@ complete --no-files -c pip -n "__fish_pip_using_command install"      -l egg    
 complete --no-files -c pip -n "__fish_pip_using_command install"      -l root             -d "Install everything relative to this alternate root directory."
 complete --no-files -c pip -n "__fish_pip_using_command install"      -l compile          -d "Compile py files to pyc"
 complete --no-files -c pip -n "__fish_pip_using_command install"      -l no-compile       -d "Do not compile py files to pyc"
+complete --no-files -c pip -n "__fish_pip_using_command install"      -l use-wheel        -d "SUPPRESSHELP"
 complete --no-files -c pip -n "__fish_pip_using_command install"      -l no-use-wheel     -d "Do not Find and prefer wheel archives when searching indexes and find-links locations."
+complete --no-files -c pip -n "__fish_pip_using_command install"      -l no-binary        -d "Do not use binary packages. Can be supplied multiple times, and each time adds to the existing value. Accepts either :all: to disable all binary packages, :none: to empty the set, or one or more package names with commas between them. Note that some packages are tricky to compile and may fail to install when this option is used on them."
+complete --no-files -c pip -n "__fish_pip_using_command install"      -l only-binary      -d "Do not use source packages. Can be supplied multiple times, and each time adds to the existing value. Accepts either :all: to disable all source packages, :none: to empty the set, or one or more package names with commas between them. Packages without binary distributions will fail to install when this option is used on them."
 complete --no-files -c pip -n "__fish_pip_using_command install"      -l pre              -d "Include pre-release and development versions. By default, pip only finds stable versions."
 complete --no-files -c pip -n "__fish_pip_using_command install"      -l no-clean         -d "Don't clean up build directories."
 
 
 # list
-complete --no-files -c pip -n "__fish_pip_using_command list" -s o -l  outdated -d "List outdated packages (excluding editables)"
-complete --no-files -c pip -n "__fish_pip_using_command list" -s u -l  uptodate -d "List uptodate packages (excluding editables)"
-complete --no-files -c pip -n "__fish_pip_using_command list" -s e -l  editable -d "List editable projects."
-complete --no-files -c pip -n "__fish_pip_using_command list" -s l -l  local    -d "If in a virtualenv that has global access, do not list globally-installed packages."
-complete --no-files -c pip -n "__fish_pip_using_command list"      -l  pre      -d "Include pre-release and development versions. By default, pip only finds stable versions."
+complete --no-files -c pip -n "__fish_pip_using_command list" -s o -l outdated -d "List outdated packages (excluding editables)"
+complete --no-files -c pip -n "__fish_pip_using_command list" -s u -l uptodate -d "List uptodate packages (excluding editables)"
+complete --no-files -c pip -n "__fish_pip_using_command list" -s e -l editable -d "List editable projects."
+complete --no-files -c pip -n "__fish_pip_using_command list" -s l -l local    -d "If in a virtualenv that has global access, do not list globally-installed packages."
+complete --no-files -c pip -n "__fish_pip_using_command list"      -l user     -d "Only output packages installed in user-site."
+complete --no-files -c pip -n "__fish_pip_using_command list"      -l pre      -d "Include pre-release and development versions. By default, pip only finds stable versions."
+
+
+# search
+complete --no-files -c pip -n "__fish_pip_using_command search" -l index -d "Base URL of Python Package Index (default %default)"
+
+
+# show
+complete --no-files -c pip -n "__fish_pip_using_command show" -s f -l files -d "Show the full list of installed files for each package."
+
+
+# uninstall
+complete --no-files -c pip -n '__fish_pip_using_command uninstall' -s r -l requirement -d "Uninstall all the packages listed in the given requirements file.  This option can be used multiple times."
+complete --no-files -c pip -n '__fish_pip_using_command uninstall' -s y -l yes         -d "Don't ask for confirmation of uninstall deletions."
+
+
+# wheel
+complete --no-files -c pip -n "__fish_pip_using_command wheel" -s w -l wheel-dir      -d "Build wheels into <dir>, where the default is '<cwd>/wheelhouse'."
+complete --no-files -c pip -n "__fish_pip_using_command wheel"      -l use-wheel      -d "SUPPRESSHELP"
+complete --no-files -c pip -n "__fish_pip_using_command wheel"      -l no-use-wheel   -d "Do not Find and prefer wheel archives when searching indexes and find-links locations. DEPRECATED in favour of --no-binary."
+complete --no-files -c pip -n "__fish_pip_using_command wheel"      -l no-binary      -d "Do not use binary packages. Can be supplied multiple times, and each time adds to the existing value. Accepts either :all: to disable all binary packages, :none: to empty the set, or one or more package names with commas between them. Note that some packages are tricky to compile and may fail to install when this option is used on them."
+complete --no-files -c pip -n "__fish_pip_using_command wheel"      -l only-binary    -d "Do not use source packages. Can be supplied multiple times, and each time adds to the existing value. Accepts either :all: to disable all source packages, :none: to empty the set, or one or more package names with commas between them. Packages without binary distributions will fail to install when this option is used on them."
+complete --no-files -c pip -n "__fish_pip_using_command wheel"      -l build-option   -d "Extra arguments to be supplied to 'setup.py bdist_wheel'."
+complete --no-files -c pip -n "__fish_pip_using_command wheel" -s c -l constraint     -d "Constrain versions using the given constraints file. This option can be used multiple times."
+complete --no-files -c pip -n "__fish_pip_using_command wheel" -s e -l editable       -d "Install a project in editable mode (i.e. setuptools \"develop mode\") from a local project path or a VCS url."
+complete --no-files -c pip -n "__fish_pip_using_command wheel" -s r -l requirement    -d "Install from the given requirements file. This option can be used multiple times."
+complete --no-files -c pip -n "__fish_pip_using_command wheel"      -l download-cache -d "SUPPRESSHELP"
+complete --no-files -c pip -n "__fish_pip_using_command wheel"      -l src            -d "Directory to check out editable projects into. The default in a virtualenv is \"<venv path>/src\". The default for global installs is \"<current dir>/src\"."
+complete --no-files -c pip -n "__fish_pip_using_command wheel"      -l no-deps        -d "Don't install package dependencies."
+complete --no-files -c pip -n "__fish_pip_using_command wheel" -s b -l build          -d "Directory to unpack packages into and build in."
+complete --no-files -c pip -n "__fish_pip_using_command wheel"      -l global-option  -d "Extra global options to be supplied to the setup.py call before the 'bdist_wheel' command."
+complete --no-files -c pip -n "__fish_pip_using_command wheel"      -l pre            -d "Include pre-release and development versions. By default, pip only finds stable versions."
+complete --no-files -c pip -n "__fish_pip_using_command wheel"      -l no-clean       -d "Don't clean up build directories."
