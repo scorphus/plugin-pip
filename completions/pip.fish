@@ -76,6 +76,7 @@ complete --no-files -c pip -n "__fish_pip_using_command install" -a "(__fish_pip
 
 
 # install
+complete --no-files -c pip -n "__fish_pip_using_command install" -s c -l constraint       -d "Constrain versions using the given constraints file. This option can be used multiple times."
 complete --no-files -c pip -n "__fish_pip_using_command install" -s e -l editable         -d "Install a project in editable mode (i.e. setuptools \"develop mode\") from a local project path or a VCS url."
 complete --no-files -c pip -n "__fish_pip_using_command install" -s r -l requirement      -d "Install from the given requirements file. This option can be used multiple times."
 complete --no-files -c pip -n "__fish_pip_using_command install" -s b -l build            -d "Directory to unpack packages into and build in. The default in a virtualenv is \"<venv path>/build\". The default for global installs is \"<OS tempdir>/pip_build_<username>\"."
