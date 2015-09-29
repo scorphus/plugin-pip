@@ -136,8 +136,8 @@ complete --no-files -c pip -n "__fish_pip_using_command show" -s f -l files -d "
 
 
 # uninstall
-complete --no-files -c pip -n '__fish_pip_using_command uninstall' -s r -l requirement -d "Uninstall all the packages listed in the given requirements file.  This option can be used multiple times."
-complete --no-files -c pip -n '__fish_pip_using_command uninstall' -s y -l yes         -d "Don't ask for confirmation of uninstall deletions."
+complete --no-files -c pip -n "__fish_pip_using_command uninstall" -s r -l requirement -d "Uninstall all the packages listed in the given requirements file.  This option can be used multiple times."
+complete --no-files -c pip -n "__fish_pip_using_command uninstall" -s y -l yes         -d "Don't ask for confirmation of uninstall deletions."
 
 
 # wheel
