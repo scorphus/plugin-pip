@@ -55,6 +55,9 @@ complete --no-files -c pip -n "__fish_pip_needs_command" -a list      -d "List i
 complete --no-files -c pip -n "__fish_pip_needs_command" -a show      -d "Show information about installed packages."
 complete --no-files -c pip -n "__fish_pip_needs_command" -a search    -d "Search PyPI for packages."
 complete --no-files -c pip -n "__fish_pip_needs_command" -a wheel     -d "Build wheels from your requirements."
+complete --no-files -c pip -n "__fish_pip_needs_command" -a zip       -d "DEPRECATED. Zip individual packages."
+complete --no-files -c pip -n "__fish_pip_needs_command" -a unzip     -d "DEPRECATED. Unzip individual packages."
+complete --no-files -c pip -n "__fish_pip_needs_command" -a bundle    -d "DEPRECATED. Create pybundles."
 complete --no-files -c pip -n "__fish_pip_needs_command" -a help      -d "Show help for commands."
 
 
