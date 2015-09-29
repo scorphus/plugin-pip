@@ -74,10 +74,6 @@ complete --no-files -c pip       -l exists-action -r -d "Default action when a p
 complete --no-files -c pip       -l cert          -r -d "Path to alternate CA bundle."
 
 
-# install packages
-complete --no-files -c pip -n "__fish_pip_using_command install" -a "(__fish_pip_search_packages)" -d "Package"
-
-
 # install
 complete --no-files -c pip -n "__fish_pip_using_command install" -s c -l constraint       -d "Constrain versions using the given constraints file. This option can be used multiple times."
 complete --no-files -c pip -n "__fish_pip_using_command install" -s e -l editable         -d "Install a project in editable mode (i.e. setuptools \"develop mode\") from a local project path or a VCS url."
@@ -104,6 +100,10 @@ complete --no-files -c pip -n "__fish_pip_using_command install"      -l no-bina
 complete --no-files -c pip -n "__fish_pip_using_command install"      -l only-binary      -d "Do not use source packages. Can be supplied multiple times, and each time adds to the existing value. Accepts either :all: to disable all source packages, :none: to empty the set, or one or more package names with commas between them. Packages without binary distributions will fail to install when this option is used on them."
 complete --no-files -c pip -n "__fish_pip_using_command install"      -l pre              -d "Include pre-release and development versions. By default, pip only finds stable versions."
 complete --no-files -c pip -n "__fish_pip_using_command install"      -l no-clean         -d "Don't clean up build directories."
+
+
+# install packages
+complete --no-files -c pip -n "__fish_pip_using_command install" -a "(__fish_pip_search_packages)" -d "Package"
 
 
 # completion
