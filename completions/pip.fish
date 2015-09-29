@@ -106,6 +106,18 @@ complete --no-files -c pip -n "__fish_pip_using_command install"      -l pre    
 complete --no-files -c pip -n "__fish_pip_using_command install"      -l no-clean         -d "Don't clean up build directories."
 
 
+# completion
+complete --no-files -c pip -n "__fish_pip_using_command completion" -s b -l bash -d "Emit completion code for bash"
+complete --no-files -c pip -n "__fish_pip_using_command completion" -s z -l zsh  -d "Emit completion code for zsh"
+
+
+# freeze
+complete --no-files -c pip -n "__fish_pip_using_command freeze" -s r -l requirement -d "Use the order in the given requirements file and its comments when generating output."
+complete --no-files -c pip -n "__fish_pip_using_command freeze" -s f -l find-links  -d "URL for finding packages, which will be added to the output."
+complete --no-files -c pip -n "__fish_pip_using_command freeze" -s l -l local       -d "If in a virtualenv that has global access, do not output globally-installed packages."
+complete --no-files -c pip -n "__fish_pip_using_command freeze"      -l user        -d "Only output packages installed in user-site."
+
+
 # list
 complete --no-files -c pip -n "__fish_pip_using_command list" -s o -l outdated -d "List outdated packages (excluding editables)"
 complete --no-files -c pip -n "__fish_pip_using_command list" -s u -l uptodate -d "List uptodate packages (excluding editables)"
