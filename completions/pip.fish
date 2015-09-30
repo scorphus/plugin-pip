@@ -48,6 +48,15 @@ function __fish_pip_search_packages
   end
 end
 
+function __fish_pip_list_packages
+  set cmd (commandline -op)
+  set q "."
+  if [ (count $cmd) -gt 2 ]
+    set q "^$cmd[3]"
+  end
+  pip list | grep $q | awk '{print $1}'
+end
+
 
 # keyword
 complete --no-files -c pip -n "__fish_pip_needs_command" -a install   -d "Install packages."
@@ -140,6 +149,10 @@ complete --no-files -c pip -n "__fish_pip_using_command show" -s f -l files -d "
 # uninstall
 complete --no-files -c pip -n "__fish_pip_using_command uninstall" -s r -l requirement -d "Uninstall all the packages listed in the given requirements file.  This option can be used multiple times."
 complete --no-files -c pip -n "__fish_pip_using_command uninstall" -s y -l yes         -d "Don't ask for confirmation of uninstall deletions."
+
+
+# uninstall packages
+complete --no-files -c pip -n "__fish_pip_using_command uninstall" -a "(__fish_pip_list_packages)" -d "Package"
 
 
 # wheel
