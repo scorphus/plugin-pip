@@ -42,8 +42,10 @@ end
 
 function __fish_pip_search_packages
   set cmd (commandline -op)
-  set q $cmd[3]
-  pip search $q | grep -ie "^$q" | awk -F' - ' '{print $1}' | sed 's/ //g'
+  if [ (count $cmd) -gt 2 ]
+    set q $cmd[3]
+    pip search $q | grep -ie "^$q" | awk -F' - ' '{print $1}' | sed 's/ //g'
+  end
 end
 
 
