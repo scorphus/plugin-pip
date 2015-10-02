@@ -79,9 +79,9 @@ complete --no-files -c pip -s V, -l version          -d "Show version and exit."
 complete --no-files -c pip -s q, -l quiet            -d "Give less output."
 complete --no-files -c pip       -l log-file      -r -d "Path to a verbose non-appending log, that only logs failures. This log is active by default at /home/daz/.pip/pip.log."
 complete --no-files -c pip       -l log           -r -d "Path to a verbose appending log. This log is inactive by default."
-complete --no-files -c pip       -l proxy         -r -d "Specify a proxy in the form [user                                                                                      : passwd@]proxy.server                  : port."
+complete --no-files -c pip       -l proxy         -r -d "Specify a proxy in the form [user: passwd@]proxy.server: port."
 complete --no-files -c pip       -l timeout       -r -d "Set the socket timeout (default 15 seconds)."
-complete --no-files -c pip       -l exists-action -r -d "Default action when a path already exists                                                                              : (s)witch, (i)gnore, (w)ipe, (b)ackup."
+complete --no-files -c pip       -l exists-action -r -d "Default action when a path already exists: (s)witch, (i)gnore, (w)ipe, (b)ackup."
 complete --no-files -c pip       -l cert          -r -d "Path to alternate CA bundle."
 
 
