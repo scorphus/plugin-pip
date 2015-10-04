@@ -43,8 +43,7 @@ end
 function __fish_pip_search_packages
   set cmd (commandline -op)
   if [ (count $cmd) -gt 2 ]
-    set q $cmd[-1]
-    pip search $q | grep -ie "^$q" | awk -F' - ' '{print $1}' | sed 's/ //g'
+    pip search "$cmd[-1]" | grep -ie "^$cmd[-1]" | awk -F' - ' '{print $1}' | sed 's/ //g' | tr 'A-Z' 'a-z'
   end
 end
 
@@ -54,7 +53,7 @@ function __fish_pip_list_packages
   if [ (count $cmd) -gt 2 ]
     set q "^$cmd[-1]"
   end
-  pip list | grep "$q" | awk '{print $1}'
+  pip list | grep -ie "$q" | awk '{print $1}' | tr 'A-Z' 'a-z'
 end
 
 
