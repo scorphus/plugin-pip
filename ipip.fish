@@ -15,16 +15,13 @@ function ipip -d "Indexes-aware pip"
                     end
                 end
             end
-            set process_dependency_links "--process-dependency-links"
             set pip_version (pip --version | awk '{print $2}')
             if [ "$pip_version" = "1.5.6" ]
                 set -e trusted_hosts
-            else
-                set -e process_dependency_links
             end
             pip install \
-                --allow-external --allow-unverified $process_dependency_links \
-                $index_urls $trusted_hosts -U $argv[2..-1]
+                --allow-external --allow-unverified $index_urls $trusted_hosts \
+                -U $argv[2..-1]
         else
             echo "Sorry, we only support `install`, mate :("
             return 1
