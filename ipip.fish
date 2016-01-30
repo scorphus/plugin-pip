@@ -2,13 +2,13 @@ function ipip -d "Indexes-aware pip"
   if test (count $argv) -ge 2
     if test $argv[1] = "install"
       if test (count $PIP_INDEX_URLS) -ge 1
-        set index_urls "--index-url"=$PIP_INDEX_URLS[1]
-        set trusted_host (__extract_domain $PIP_INDEX_URLS[1])
+        set index_urls "--index-url"=$PIP_INDEX_URLS[1]"simple/"
+        set trusted_host (__extract_domain $PIP_INDEX_URLS[1]"simple/")
         set trusted_hosts "--trusted-host" $trusted_host
         if test (count $PIP_INDEX_URLS) -ge 2
           for index_url in $PIP_INDEX_URLS[2..-1]
-            set index_urls $index_urls "--extra-index-url"=$index_url
-            set trusted_host (__extract_domain $index_url)
+            set index_urls $index_urls "--extra-index-url"=$index_url"simple/"
+            set trusted_host (__extract_domain $index_url"simple/")
             if not contains $trusted_host $trusted_hosts
               set trusted_hosts $trusted_hosts "--trusted-host" $trusted_host
             end
