@@ -22,8 +22,15 @@ function ipip -d "Indexes-aware pip"
       pip install \
         --allow-external --allow-unverified $index_urls $trusted_hosts \
         -U $argv[2..-1]
+    else if test $argv[1] = "search"
+      if test (count $PIP_INDEX_URLS) -ge 1
+        set index_urls "--index"=$PIP_INDEX_URLS[1]
+        set trusted_host (__extract_domain $PIP_INDEX_URLS[1]"simple/")
+        set trusted_hosts "--trusted-host" $trusted_host
+      end
+      pip search $index_urls $trusted_hosts $argv[2..-1]
     else
-      echo "Sorry, we only support `install`, mate :("
+      echo "Sorry, we only support `install` and `search`, mate :("
       return 1
     end
   else
