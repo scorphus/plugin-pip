@@ -16,7 +16,7 @@ function pip-uninstall-all -d "Uninstall all pip packages"
     end
     read -l -p "echo '$read_prompt'" doit
     if test "$doit" = "y"
-        for package in (pip list | egrep -iv "pip" | awk '{print $1}')
+        for package in (pip list | egrep -iv "pip|setuptools|wheel" | cut -d\  -f1)
             echo -n "Uninstalling $package... "
             if set -q interactive
                 pip uninstall -q $package
@@ -25,6 +25,7 @@ function pip-uninstall-all -d "Uninstall all pip packages"
                 echo " ...done!"
             end
         end
-        pip install -U pip setuptools
+        echo "Installing/updating pip, setuptools and wheel..."
+        pip install -U pip setuptools wheel
     end
 end
